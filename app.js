@@ -44,6 +44,7 @@ $('.card').click(function(employeeData){
 //When any part of an employee item in the directory is clicked, a modal window 
 //should pop up with the following details displayed:Image, Name, Email, City,
 //Cell Number, Detailed Address, including street name & number, state, and post code, Birthday
+//got help from an otside party "jay from career karma"
 
     function modalCreate() {
       createModal += '<div class="modal-container">';
