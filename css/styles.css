@@ -16,7 +16,7 @@ html, body {
 body {
     font-family: "Nunito", sans-serif;
     text-align: center;
-    background: rgba(235, 235, 235, 0.9);
+    background: rgba(47,86,135,1);
 }
 
 header {
@@ -130,7 +130,7 @@ header h1 {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(47,86,135,1);
 }
 
 .modal {
@@ -250,6 +250,7 @@ header h1 {
     .card:hover {
         background: rgba(255, 255, 255, 1);
         border: 1px solid rgba(50, 50, 50, 0.9);
+       
     }
 
     .card:hover .card-text {
@@ -260,4 +261,6 @@ header h1 {
         background: rgba(255, 255, 255, 1);
         color: rgba(25, 25, 25, 1); 
     }
+
+    
 }
