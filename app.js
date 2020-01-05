@@ -37,7 +37,7 @@ $(document).ready(function() {
 let createModal;
 $('body').append('<div id="modal-window-div">');   //createModal new div
 
-$('.card').click(function(employeeData){
+$('.card').click(function(){
     var employeeIndex = $('.card').index(this);       //for each employee it finds the indexx
     console.log(employeeIndex); 
 
@@ -45,7 +45,8 @@ $('.card').click(function(employeeData){
 //should pop up with the following details displayed:Image, Name, Email, City,
 //Cell Number, Detailed Address, including street name & number, state, and post code, Birthday
 //got help from an otside party "jay from career karma"
-
+    var employee = data.results[employeeIndex];
+    //console.log(employee);
     function modalCreate() {
       createModal += '<div class="modal-container">';
       createModal += '<div class="modal">';
@@ -53,28 +54,29 @@ $('.card').click(function(employeeData){
       createModal += '<div class="modal-info-container">';
 
  ///////////////////// IMAGE/////////////////////////////////////HTML
-    createModal += '<img class="modal-img" src="' + data.results[employeeIndex].picture.large + '" alt="profile picture">';
+    createModal += '<img class="modal-img" src="' + employee.picture.large + '" alt="profile picture">';
 
  ////////////////////////NAME/////////////////////////////////////HTML
-    createModal += '<h3 id="name" class="modal-name cap">' + data.results[employeeIndex].name.first + ' ' + data.results[employeeIndex].name.last + '</h3>';
+    createModal += '<h3 id="name" class="modal-name cap">' + employee.name.first + ' ' + employee.name.last + '</h3>';
 
 //////////////////////////EMAIL///////////////////////////////////HTML
-    createModal += '<p class="modal-text">' + data.results[employeeIndex].email + '</p>';
+    createModal += '<p class="modal-text">' + employee.email + '</p>';
 
 //////////////////////////CITY & STATE/////////////////////////////HTML
-    createModal += '<p class="modal-text cap">' + data.results[employeeIndex].location.city + ', ' + data.results[employeeIndex].location.state + '</p>';
+    createModal += '<p class="modal-text cap">' + employee.location.city + ', ' + employee.location.state + '</p>';
     createModal += '<hr>';
 
 ///////////////////////////PHONE NUMBER////////////////////////////HTML
-    createModal += '<p class="modal-text"><b>' + 'Cell Phone:' + '</b>' + ' ' + data.results[employeeIndex].cell + '</p>';
+    createModal += '<p class="modal-text"><b>' + 'Cell Phone:' + '</b>' + ' ' + employee.cell + '</p>';
 
 ///////////////////////////DETAILED ADDRESS//////////////////////////HTML
     createModal += '<p class="modal-text cap"><b>' + 'Address:' + '</b>' + '<br>';
-    createModal += data.results[employeeIndex].location.street + '<br>' + data.results[employeeIndex].location.city +  ', ' + data.results[employeeIndex].location.state + ' ' + data.results[employeeIndex].location.postcode + '</p>';
+    createModal += employee.location.street.number + ' ' + employee.location.street.name + '<br>' + employee.location.city +  ', ' + employee.location.state + ' ' + employee.location.postcode + '</p>';
+        //console.log(data);
 
 /////////////////////////////AGE & DOB//////////////////////////////////HTML
-    createModal += '<p class="modal-text"><b>' + 'Age:' + '</b>' + ' ' + data.results[employeeIndex].dob.age + '</p>';
-    createModal += '<p class="modal-text"><b>' + 'DOB:' + '</b>' + ' ' + data.results[employeeIndex].dob.date.slice(0, 10) + '</p>';
+    createModal += '<p class="modal-text"><b>' + 'Age:' + '</b>' + ' ' + employee.dob.age + '</p>';
+    createModal += '<p class="modal-text"><b>' + 'DOB:' + '</b>' + ' ' + employee.dob.date.slice(0, 10) + '</p>';
 
         // Close the divs
         createModal += '</div>';
@@ -90,7 +92,8 @@ $('.card').click(function(employeeData){
 
 
 ////////////////////////////////CLOSE WINDOWS///////////////////////////
-    $('#modal-window-div').click(function() {
+    $('').click(function() { // <-- why isnt this working? 
+        console.log('should close');
         $('#modal-window-div').hide();
   }); 
 
